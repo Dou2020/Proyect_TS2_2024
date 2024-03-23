@@ -13,7 +13,7 @@
     <?php include '../References/navigation.php'; ?>
 
     <div class="col-md-4 container">
-        <form>
+        <form action="/Control/User/addPublicControl.php" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>Registrar Publicidad</legend>
                 <div>
@@ -23,6 +23,10 @@
                 <div>
                     <label for="exampleTextarea" class="form-label mt-4">Descripción</label>
                     <textarea class="form-control" rows="3" name="description-addPublic"></textarea>
+                </div>
+                <div>
+                    <label class="col-form-label mt-4" for="inputDefault">Precio</label>
+                    <input type="number" class="form-control" placeholder="Ingresar precio" name="price-addPublic">
                 </div>
                 <div>
                     <label for="formFile" class="form-label mt-4">Ingresar Imagen/Foto</label>

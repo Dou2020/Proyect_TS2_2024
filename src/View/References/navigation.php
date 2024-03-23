@@ -15,7 +15,7 @@ error_reporting(E_PARSE);
                 <a class="nav-link" href="/"> Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/">Productos</a>
+                <a class="nav-link" href="/View/User/listPublic.php">Productos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">Voluntariado</a>
@@ -59,7 +59,7 @@ error_reporting(E_PARSE);
             <div class="modal-body">
 
                 <!-- Form Login INSERT -> email-login and pass-login   -->
-                <form action="/Control/loginControl.php" method="post">
+                <form action="/Control/User/addUser.php" method="post">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nombre</label>
                         <input type="text" class="form-control" name="name-signin" aria-describedby="emailHelp">
@@ -74,7 +74,7 @@ error_reporting(E_PARSE);
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">confirmar Password</label>
-                        <input type="password" class="form-control" name="pass-signin">
+                        <input type="password" class="form-control" name="passConfirm-signin">
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">

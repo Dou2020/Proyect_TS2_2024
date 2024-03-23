@@ -19,5 +19,6 @@ CREATE TABLE publicacion (
     id_person INT(8),
     status VARCHAR(1),
     type VARCHAR(1),
+    price float(4,4),
     FOREIGN KEY (`id_person`) REFERENCES person(`id`) ON UPDATE CASCADE
 );
