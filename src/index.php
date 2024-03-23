@@ -11,8 +11,6 @@
 <body>
     <!-- Opcion of the navigation -->
     <?php include './View/References/navigation.php'; ?>
-    <!-- Opcion of the navigation -->
-    <?php include './Model/DB.php'; ?>
 
 </body>
 </html>
