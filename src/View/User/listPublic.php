@@ -21,8 +21,8 @@
                 <?php
                 //Ejecuta la consulta de los ultimos productos para mostrar
                 // No conecta a la base de datos
-                include '../../Config/configDB.php'; //<!--Referencia por cambiar -->\
-                include '../../Model/consultDB.php'; //<!--Referencia por cambiar --asdasd>
+                include '../../Config/configDB.php'; //<!--Referencia por cambiar -->
+                include '../../Model/consultDB.php'; //<!--Referencia por cambiar -->
                 
                 $consulta = ejecutarSQL::consultar("SELECT * FROM publicacion WHERE status > 0 ORDER BY id DESC LIMIT 7");
                 $totalPublic = mysqli_num_rows($consulta);
@@ -60,7 +60,7 @@
                                         </p>
                                     <?php endif; ?>
                                     <p class="text-center">
-                                        <a href="src/Vista/viewUser/infoProduct.php?id-public=<?php echo $fila['id']; ?>"
+                                        <a href="/View/User/infoPublic.php?id-public=<?php echo $fila['id']; ?>"
                                             class="btn btn-primary btn-sm btn-raised btn-block"><i class="fa fa-plus"></i>&nbsp;
                                             Detalles</a>
                                     </p>
