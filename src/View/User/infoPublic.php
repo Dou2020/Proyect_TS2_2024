@@ -34,13 +34,13 @@ include '../../Model/consultDB.php';
                                 <h4><strong>Precio: </strong>Q ' . number_format(($fila['price']), 2, '.', '') . '</h4><br>
                                 <h4><strong>Descripcion: </strong>' . $fila['description'] . '</h4>';
 
-                    if ($fila['imagen'] != "" && is_file("../../assets/img/" . $fila['image'])) {
-                        $imagenFile = "./assets/img-products/" . $fila['Imagen'];
+                    if ($fila['image'] != "" && is_file("../../assets/img/" . $fila['image'])) {
+                        $imagenFile = "/assets/img/" . $fila['image'];
                     } else {
-                        $imagenFile = "./assets/img-products/default.png";
+                        $imagenFile = "/assets/img/default.png";
                     }
                     echo '<br>
-                                <a href="./viewProducts.php" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a Publicaciones</a>
+                                <a href="/View/User/listPublic.php" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a Publicaciones</a>
                             </div>
                                 
 

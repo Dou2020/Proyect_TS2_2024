@@ -5,6 +5,7 @@
 Es una de las funciones más importantes en el sistema por el cual nos ayudará a
 tener un mercado digital y así incentivar las transacciones digitales con las dos
 monedas principales, las cuales se usará para el pago de los mismos.
+
 1.1.1 Validaciones de compras: Esta opción es la principal herramienta para
 que las compras tenga los requerimientos siguientes:
 
@@ -14,6 +15,7 @@ que las compras tenga los requerimientos siguientes:
 - categoría
 - Detalles
 - imagen
+
 
 1.1.2 Interfaz de compras: nos permitirá mostrar cada uno de los productos
 tendrá algunas opciones para filtrar los diferentes productos que estén
