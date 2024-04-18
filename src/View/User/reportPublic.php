@@ -2,17 +2,18 @@
 include '../../Config/configDB.php';
 include '../../Model/consultDB.php';
 include '../../Model/publicCRUD.php'
-    ?>
+?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <title>Public</title>
+    <meta charset="UTF-8">
+    <title>Publicar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include './../References/link.php'; ?>
 </head>
 
-<body id="container-page-product">
-
+<body>
     <!-- Opcion of the navigation -->
     <?php include '../References/navigation.php'; ?>
 
@@ -20,7 +21,7 @@ include '../../Model/publicCRUD.php'
         <div class="container">
             <div class="row">
                 <div class="page-header">
-                    <h1>DETALLE DE LA PUBLICIDAD </h1>
+                    <h1>Reportar Publicación </h1>
                 </div>
                 <?php
                 $idPublic = consultasSQL::clean_string($_GET['id-public']);
@@ -40,30 +41,26 @@ include '../../Model/publicCRUD.php'
                         $imagenFile = "/assets/img/default.png";
                     }
                     echo '<br>
-                                <a href="/View/User/listPublic.php" class="btn btn-lg btn-secondary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a Publicaciones</a>
+                                <form action="/Control/User/reportPublic.php" method="post">
+                                <fieldset>
+                                <legend>Comentar</legend>
+                                <div>
+                                    <label class="col-form-label mt-4" for="inputDefault">ID: </label>
+                                    <input type="text" class="form-control" value="',$fila['id'],'"placeholder="Ingresar titulo"  name="id-reportPublic" readonly>
+                                </div>
+                                <div>
+                                    <label for="exampleTextarea" class="form-label mt-4">Descripción</label>
+                                    <textarea class="form-control" rows="3" name="coment-reportPublic"></textarea>
+                                </div>
+                                <p></p>
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                                </div>
+                                </fieldset>
+                                </form>
+                                <br><br>
+                                <a href="/View/User/infoPublic.php?id-public=',$fila['id'],'" class="btn btn-lg btn-secondary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a Publicaciones</a>
                         ';
-                    if ($_SESSION['rolPerson']==1 && $fila['status']==0) {
-                        echo '
-                        <a href="/Control/Admin/activePublic.php?id-public=',$fila['id'],'" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Aceptar Publicación</a>
-                        ';
-                    }
-                    if ($_SESSION['rolPerson'] == 2 && $fila['type'] < 4) {
-                        echo ' 
-                            <a href="/Control/User/buyPublic.php?id-public=', $fila['id'], '" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Comprar</a>
-                            <br>
-                            <div class="container">    
-                            <br>
-                            <div class="row">
-                                <div class="btn-group" role="group"> 
-                                    <a href="/View/User/reportPublic.php?id-public=',$fila['id'],'" class="btn btn-lg btn-warning">Reportar</a>
-
-                                    <a href="" class="btn btn-lg btn-success btn-block">CHAT</a>
-                                </div>    
-                            </div>    
-                        </div> 
-                            ';
-
-                    }
                     echo '</div>
                             <div class="col-xs-12 col-sm-6">
                                 <br><br><br>
@@ -75,9 +72,6 @@ include '../../Model/publicCRUD.php'
             </div>
         </div>
     </section>
-
-    <?php include './../references/footer.php'; ?>
-
 </body>
 
 </html>

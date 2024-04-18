@@ -12,11 +12,23 @@ class PublicCRUD {
     }
     public static function updatePublicType($id,$type)
     {
-        return consultasSQL::UpdateSQL("`publicacion`", "`type`=',$type,'", "`id`='$id'");
+        return consultasSQL::UpdateSQL("`publicacion`", "type=$type", "`id`='$id'");
+    }
+    public static function updatePublicActive($id)
+    {
+        return consultasSQL::UpdateSQL("`publicacion`", "status=1", "`id`='$id'");
     }
     public static function readPublicTrue()
     {
         return ejecutarSQL::consultar("SELECT * FROM publicacion WHERE status > 0 AND type < 4");
+    }
+    public static function readPublicBuy($id)
+    {
+        return ejecutarSQL::consultar("SELECT * FROM publicacion INNER JOIN compra ON publicacion.id = compra.id_public WHERE compra.id_person = $id");
+    }
+    public static function readPublicReport()
+    {
+        return ejecutarSQL::consultar("SELECT DISTINCT publicacion.id, publicacion.title, publicacion.description,publicacion.image  FROM publicacion INNER JOIN report ON publicacion.id = report.id_public;");
     }
     public static function readPublicFalse()
     {

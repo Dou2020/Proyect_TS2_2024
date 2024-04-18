@@ -13,7 +13,7 @@ class BankCRUD
     }
     public static function updateBankID($id,$money)
     {
-        return consultasSQL::UpdateSQL("`bank`","`money` = `$money`","`id_person`='$id'");
+        return consultasSQL::UpdateSQL("`bank`","`money` = $money","`id_person`=$id");
     }
 
 }

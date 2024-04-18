@@ -5,6 +5,8 @@
     include '../../Model/consultDB.php';
     include '../../Model/publicCRUD.php';
     include '../../Model/bankCRUD.php';
+    include '../../Model/userCRUD.php';
+    
     $email=consultasSQL::clean_string($_POST['email-login']);
     $pass=consultasSQL::clean_string($_POST['pass-login']);
     if($email!="" && $pass!=""){

@@ -58,16 +58,16 @@ error_reporting(E_PARSE);
                 if ($_SESSION['rolPerson']==1) {
                     echo'
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Buzon</a>
+                        <a class="nav-link" href="/View/Admin/reportPublic.php">Buzon</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Publicaciones</a>
+                        <a class="nav-link" href="/View/Admin/activePublic.php">Publicaciones</a>
                     </li>
                     ';
                 }else {
                     echo'
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Compras</a>
+                            <a class="nav-link" href="/View/User/listBuyPublic.php">Compras</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/View/User/addPublic.php">Publicar</a>

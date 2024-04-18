@@ -15,5 +15,5 @@ class UserCRUD
     {
         return ejecutarSQL::consultar("SELECT * FROM person WHERE email='$email' AND password='$pass' ");
     }
-
+    
 }
