@@ -4,21 +4,45 @@ error_reporting(E_PARSE);
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/">STORE</a>
+    <a class="navbar-brand" routerLink="/">
+        <?php
+        // Validate user Rol and Name
+        switch ($_SESSION['rolPerson']) {
+            case 1:
+                echo' Administrador   ',$_SESSION['namePerson'];
+                break;
+            case 2:
+                echo' Usuario   ',$_SESSION['namePerson'];
+                break;
+            default:
+                echo'STORE';
+                break;
+        }
+        ?>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
+            <?php  
+                if ($_SESSION['rolPerson']>0) {
+                    echo'
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"> Money: Q ',$_SESSION['moneyPerson'],' </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"> Cacao: C ',$_SESSION['cacaoPerson'],' </a>
+                    </li>
+                    ';
+                }
+            ?>
             <li class="nav-item active">
                 <a class="nav-link" href="/"> Inicio</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/View/User/listPublic.php">Productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">Voluntariado</a>
             </li>
             <?php
             if (!$_SESSION['statusPerson'] == true) {
@@ -31,16 +55,29 @@ error_reporting(E_PARSE);
                     </li>
                 ';
             }else {
+                if ($_SESSION['rolPerson']==1) {
+                    echo'
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Buzon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Publicaciones</a>
+                    </li>
+                    ';
+                }else {
+                    echo'
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Compras</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/View/User/addPublic.php">Publicar</a>
+                        </li>
+                    ';
+                }
                 echo'
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Carrito</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/View/User/addPublic.php">Publicar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Control/_Sesion/logoutControl.php">Log out</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Control/_Sesion/logoutControl.php">Log out</a>
+                </li>
                 ';
             }
             ?>

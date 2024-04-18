@@ -23,24 +23,21 @@
                 // No conecta a la base de datos
                 include '../../Config/configDB.php'; //<!--Referencia por cambiar -->
                 include '../../Model/consultDB.php'; //<!--Referencia por cambiar -->
-                
-                $consulta = ejecutarSQL::consultar("SELECT * FROM publicacion WHERE status > 0 ORDER BY id DESC LIMIT 7");
+                include '../../Model/publicCRUD.php'; //<!--Referencia por cambiar -->
+                            
+                $consulta = PublicCRUD::readPublicTrue();
                 $totalPublic = mysqli_num_rows($consulta);
                 if ($totalPublic > 0) {
                     while ($fila = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
                         ?>
                         <div class="col-xs-12 col-sm-6 col-md-4">
-                            <div class="">
-                                <div class="card text-center">
-                                    <img class="img-product" src="/assets/img/<?php if ($fila['image'] != "" && is_file("../../assets/img/" . $fila['image'])) {
-                                        echo $fila['image'];
-                                    } else {
-                                        echo "default.png";
-                                    } ?>">
-                                </div>
-                            </div>
-                            <div class="thumbnail">
-                                <div class="caption">
+                            <div class="thumbnail" style="height: 500px;">
+                                <img class="img-fluid" style="height: 250px;" src="/assets/img/<?php if ($fila['image'] != "" && is_file("../../assets/img/" . $fila['image'])) {
+                                    echo $fila['image'];
+                                } else {
+                                    echo "default.png";
+                                } ?>">
+                                <div class="caption" style="height: 300px;">
                                     <h3>
                                         <?php echo $fila['title']; ?>
                                     </h3>

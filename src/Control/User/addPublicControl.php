@@ -5,6 +5,7 @@ error_reporting(E_PARSE);
 
 include '../../Config/configDB.php';
 include '../../Model/consultDB.php';
+include '../../Model/publicCRUD.php';
 
 $title = consultasSQL::clean_string($_POST['title-addPublic']);
 $description = consultasSQL::clean_string($_POST['description-addPublic']);
@@ -42,7 +43,7 @@ if (isset ($img)) {
         $imgFinalName = $title.$_SESSION["idPerson"].$imgEx;
         if (move_uploaded_file($img["tmp_name"], "../../assets/img/" . $imgFinalName)) {
             $id_person = $_SESSION['idPerson'];
-            if(consultasSQL::InsertSQL("`publicacion`", "`title`, `description`, `image`, `id_person`, `status`, `type`, `price`", "'$title','$description','$imgFinalName','$id_person', '1', '$type', '$price'")){
+            if(PublicCRUD::insertPublic($title,$description,$imgFinalName,$id_person,$type,$price)){
                 echo '<script> location.href="/View/User/addPublic.php"; </script>';
             }
         } else {

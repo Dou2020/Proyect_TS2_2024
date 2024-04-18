@@ -22,6 +22,12 @@ CREATE TABLE publicacion (
     price float(4,4),
     FOREIGN KEY (`id_person`) REFERENCES person(`id`) ON UPDATE CASCADE
 );
+CREATE TABLE compra(
+    id_person INT(8) NOT NULL,
+    id_public INT(8) NOT NULL,
+    FOREIGN KEY (`id_person`) REFERENCES person(`id`) ON UPDATE CASCADE,
+    FOREIGN KEY (`id_public`) REFERENCES person(`id`) ON UPDATE CASCADE
+);
 CREATE TABLE bank (
     id_person INT(8) NOT NULL,
     money float(6,4) NOT NULL,

@@ -46,6 +46,12 @@
                             Voluntariado
                         </label>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type-addPublic" value="3">
+                        <label class="form-check-label" for="optionsRadios3">
+                            Servicio
+                        </label>
+                    </div>
                 </fieldset>
                 <p></p>
                 <div class="d-grid gap-2">
