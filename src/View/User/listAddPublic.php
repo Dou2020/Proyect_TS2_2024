@@ -15,7 +15,7 @@
     <section id="new-prod-index">
         <div class="container">
             <div class="page-header">
-                <h1>Últimas<small> Publicaciones Reportadas</small></h1>
+                <h1>Últimas<small> Publicaciones Personales</small></h1>
             </div>
             <div class="row">
                 <?php
@@ -25,7 +25,7 @@
                 include '../../Model/consultDB.php'; //<!--Referencia por cambiar -->
                 include '../../Model/publicCRUD.php'; //<!--Referencia por cambiar -->
                             
-                $consulta = PublicCRUD::readPublicReport();
+                $consulta = PublicCRUD::readPublicUser($_SESSION['idPerson']);
                 $totalPublic = mysqli_num_rows($consulta);
                 if ($totalPublic > 0) {
                     while ($fila = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
@@ -57,7 +57,7 @@
                                         </p>
                                     <?php endif; ?>
                                     <p class="text-center">
-                                        <a href="/View/Admin/infoReportPublic.php?id-public=<?php echo $fila['id']; ?>"
+                                        <a href="/View/User/infoPublic.php?id-public=<?php echo $fila['id']; ?>"
                                             class="btn btn-primary btn-sm btn-raised btn-block"><i class="fa fa-plus"></i>&nbsp;
                                             Detalles</a>
                                     </p>
@@ -67,7 +67,7 @@
                         <?php
                     }
                 } else {
-                    echo '<h2>No hay Publicaciones Reportadas</h2>';
+                    echo '<h2>No hay productos registrados en la tienda</h2>';
                 }
                 ?>
             </div>

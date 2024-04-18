@@ -30,10 +30,7 @@ error_reporting(E_PARSE);
                 if ($_SESSION['rolPerson']>0) {
                     echo'
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"> Money: Q ',$_SESSION['moneyPerson'],' </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"> Cacao: C ',$_SESSION['cacaoPerson'],' </a>
+                        <a href="/View/User/buyMoney.php" class="nav-link active" aria-current="page"> CACAO: C ',$_SESSION['moneyPerson'],' </a>
                     </li>
                     ';
                 }
@@ -71,6 +68,9 @@ error_reporting(E_PARSE);
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/View/User/addPublic.php">Publicar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/View/User/listAddPublic.php">Publicaciones</a>
                         </li>
                     ';
                 }
