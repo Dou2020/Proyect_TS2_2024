@@ -48,7 +48,7 @@
                                         <p>
                                             <?php
                                             $pref = number_format($fila['price'], 2, '.', '');
-                                            echo "Precio Q" . $pref;
+                                            echo "Precio C" . $pref;
                                             ?>
                                         </p>
                                     <?php else: ?>

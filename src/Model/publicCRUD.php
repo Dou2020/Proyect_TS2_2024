@@ -16,6 +16,10 @@ class PublicCRUD {
     {
         return consultasSQL::UpdateSQL("`publicacion`", "status=1", "`id`='$id'");
     }
+    public static function updatePublicFalse($id)
+    {
+        return consultasSQL::UpdateSQL("`publicacion`", "status=0", "`id`='$id'");
+    }
 
     // Peticiones de lectura
     public static function readPublicTrue()
@@ -28,7 +32,7 @@ class PublicCRUD {
     }
     public static function readPublicReport()
     {
-        return ejecutarSQL::consultar("SELECT DISTINCT publicacion.id, publicacion.title, publicacion.description,publicacion.image  FROM publicacion INNER JOIN report ON publicacion.id = report.id_public;");
+        return ejecutarSQL::consultar("SELECT DISTINCT publicacion.id, publicacion.title, publicacion.description,publicacion.image  FROM publicacion INNER JOIN report ON publicacion.id = report.id_public WHERE publicacion.status=1;");
     }
     public static function readPublicFalse()
     {

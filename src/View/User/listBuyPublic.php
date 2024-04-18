@@ -53,7 +53,7 @@
                                             ?>
                                         </p>
                                     <?php else: ?>
-                                        <p>Q
+                                        <p>C
                                             <?php echo $fila['price']; ?>
                                         </p>
                                     <?php endif; ?>

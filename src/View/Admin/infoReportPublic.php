@@ -41,29 +41,9 @@ include '../../Model/publicCRUD.php'
                     }
                     echo '<br>
                                 <a href="/View/User/listPublic.php" class="btn btn-lg btn-secondary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a Publicaciones</a>
-                        ';
-                    if ($_SESSION['rolPerson']==1 && $fila['status']==0) {
-                        echo '
-                        <a href="/Control/Admin/activePublic.php?id-public=',$fila['id'],'" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Aceptar Publicación</a>
-                        ';
-                    }
-                    if ($_SESSION['rolPerson'] == 2 && $fila['type'] < 4) {
-                        echo ' 
-                            <a href="/Control/User/buyPublic.php?id-public=', $fila['id'], '" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Comprar</a>
-                            <br>
-                            <div class="container">    
-                            <br>
-                            <div class="row">
-                                <div class="btn-group" role="group"> 
-                                    <a href="/View/User/reportPublic.php?id-public=',$fila['id'],'" class="btn btn-lg btn-warning">Reportar</a>
+                                <a href="/Control/Admin/falsePublic.php?id-public=',$fila['id'],'" class="btn btn-lg btn-primary btn-raised btn-block"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Desabilitar Publicidad</a>
+                                ';
 
-                                    <a href="" class="btn btn-lg btn-success btn-block">CHAT</a>
-                                </div>    
-                            </div>    
-                        </div> 
-                            ';
-
-                    }
                     echo '</div>
                             <div class="col-xs-12 col-sm-6">
                                 <br><br><br>
